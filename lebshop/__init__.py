@@ -1,4 +1,3 @@
-from lebshop import routes
 import os
 from flask import Flask
 from flask_gravatar import Gravatar
@@ -28,3 +27,4 @@ login_manager.login_message_category = "info"
 stripe.api_key = app.config["STRIPE_SECRET_KEY"]
 
 # -------------------------------------- #
+from lebshop import routes
