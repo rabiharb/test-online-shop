@@ -1,3 +1,4 @@
+from lebshop import routes
 import os
 from flask import Flask
 from flask_gravatar import Gravatar
@@ -12,7 +13,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
-    "DATABASE_URL", "sqlite:///leb-shop-app.db")
+    "HEROKU_POSTGRESQL_PUCE_URL", "sqlite:///leb-shop-app.db")
 app.config["STRIPE_PUBLIC_KEY"] = os.environ.get("STRIPE_PUBLIC_KEY")
 app.config["STRIPE_SECRET_KEY"] = os.environ.get("STRIPE_SECRET_KEY")
 
@@ -27,4 +28,3 @@ login_manager.login_message_category = "info"
 stripe.api_key = app.config["STRIPE_SECRET_KEY"]
 
 # -------------------------------------- #
-from lebshop import routes
