@@ -1,0 +1,39 @@
+body {
+  background-color: #333;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto;
+}
+.logo-cont {
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+  justify-content: center;
+}
+.logo-cont > img {
+  width: 25%;
+}
+.form-cont {
+  color: #eaeaea;
+  width: 90%;
+  margin: 50px auto 0;
+}
+.my_form_control {
+  background-color: #333;
+  color: #fff;
+}
+.my_form_control:hover {
+  background-color: rgba(33, 33, 33, 0.33);
+}
+.my_form_control:focus {
+  background-color: rgba(33, 33, 33, 0.33);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  body {
+    width: 100%;
+  }
+}

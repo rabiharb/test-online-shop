@@ -1,0 +1,283 @@
+{
+  "all_categories": [
+    "berries",
+    "green",
+    "juicy",
+    "sour",
+    "sweet",
+    "tropical",
+    "all"
+  ],
+  "products": [
+    {
+      "name": "Banana",
+      "price": "1.5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Lebanese native fresh bananas",
+      "categories": ["berries"],
+      "in_stock": true,
+      "image_name": "banana.jpg"
+    },
+    {
+      "name": "Apples - red",
+      "price": "0.8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Hand picked fresh red apples",
+      "categories": ["juicy"],
+      "in_stock": true,
+      "image_name": "apples.jpg"
+    },
+    {
+      "name": "Apples - green",
+      "price": "0.8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "A bit sour green apples",
+      "categories": ["juicy", "green", "sour"],
+      "in_stock": true,
+      "image_name": "apples-green.jpg"
+    },
+    {
+      "name": "Apples - yellow",
+      "price": "0.8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Sweet yello apples",
+      "categories": ["juicy", "sweet"],
+      "in_stock": true,
+      "image_name": "apples-yellow.jpg"
+    },
+    {
+      "name": "Pear",
+      "price": "2",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Fresh Juicy Pears",
+      "categories": ["juicy"],
+      "in_stock": true,
+      "image_name": "pear.jpg"
+    },
+    {
+      "name": "Blueberries",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Blueberries are blue",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "blueberry.jpg"
+    },
+    {
+      "name": "Strawberries",
+      "price": "4",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Strawberries have no straw",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "strawberry.jpg"
+    },
+    {
+      "name": "Raspberries",
+      "price": "3.5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Seasonal Raspberries",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "raspberry.jpg"
+    },
+    {
+      "name": "Orange - Normal",
+      "price": "0.4",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Fresh tasty oranges",
+      "categories": ["juicy", "sour"],
+      "in_stock": true,
+      "image_name": "orange-normal.jpg"
+    },
+    {
+      "name": "Orange - Sugar",
+      "price": "0.5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Fresh tasty oranges, No sour, Sweet",
+      "categories": ["juicy", "sweet"],
+      "in_stock": true,
+      "image_name": "orange-sugar.jpg"
+    },
+    {
+      "name": "Orange - dragon red",
+      "price": "0.5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Fresh tasty oranges, Soury taste",
+      "categories": ["juicy", "sour"],
+      "in_stock": true,
+      "image_name": "orange-dragon.jpg"
+    },
+    {
+      "name": "Watermelon",
+      "price": "2.2",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Sweet and Juicy watermelons",
+      "categories": ["juicy", "sweet"],
+      "in_stock": true,
+      "image_name": "water-melon.jpg"
+    },
+    {
+      "name": "Avocado",
+      "price": "5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Avocados mix with everything",
+      "categories": ["green"],
+      "in_stock": true,
+      "image_name": "avocado.jpg"
+    },
+    {
+      "name": "Passion Fruit",
+      "price": "8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Passion Fruit",
+      "categories": ["juicy", "sour", "tropical"],
+      "in_stock": true,
+      "image_name": "passion-fruit.jpg"
+    },
+    {
+      "name": "Mango",
+      "price": "8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Brazilian Mangos",
+      "categories": ["juicy", "tropical"],
+      "in_stock": true,
+      "image_name": "mango.jpg"
+    },
+    {
+      "name": "Clementine",
+      "price": "2",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native clementine",
+      "categories": ["juicy", "sour"],
+      "in_stock": true,
+      "image_name": "clementine.jpg"
+    },
+    {
+      "name": "Kiwi",
+      "price": "8",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native kiwis",
+      "categories": ["juicy", "green", "tropical"],
+      "in_stock": true,
+      "image_name": "kiwi.jpg"
+    },
+    {
+      "name": "Grapes - white",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Grapes",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "grapes-white.jpg"
+    },
+    {
+      "name": "Grapes - black",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Grapes",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "grapes-black.jpg"
+    },
+    {
+      "name": "Grapes - purple",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Grapes",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "grapes-red.jpg"
+    },
+    {
+      "name": "Guava",
+      "price": "6",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Fresh Guava",
+      "categories": ["tropical"],
+      "in_stock": true,
+      "image_name": "guava.jpg"
+    },
+    {
+      "name": "Peach",
+      "price": "5",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Fresh Peaches",
+      "categories": ["juicy"],
+      "in_stock": true,
+      "image_name": "peach.jpg"
+    },
+    {
+      "name": "Nectarine",
+      "price": "6",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Fresh Nectarine",
+      "categories": ["juicy", "berries"],
+      "in_stock": true,
+      "image_name": "nactarine.jpg"
+    },
+    {
+      "name": "Apricot",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Fresh Apricot",
+      "categories": ["berries"],
+      "in_stock": true,
+      "image_name": "apricot.jpg"
+    },
+    {
+      "name": "Cherry",
+      "price": "3",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Native Fresh Cherries",
+      "categories": ["berries"],
+      "in_stock": true,
+      "image_name": "cherry.jpg"
+    },
+    {
+      "name": "walnut",
+      "price": "80",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Whole Walnuts",
+      "categories": [],
+      "in_stock": true,
+      "image_name": "walnut.jpg"
+    },
+    {
+      "name": "Almond",
+      "price": "90",
+      "uom": "kg",
+      "currency": "$",
+      "desc": "Whole Almonds",
+      "categories": [],
+      "in_stock": true,
+      "image_name": "almond.jpg"
+    }
+  ]
+}

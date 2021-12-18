@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css')}}"
+    />
+    <title>Leb's Online Shop - Home Page</title>
+  </head>
+  <body>
+    <div class="nav-bar-stick-container">
+      {% include "nav_bar.html" %}
+      <section id="mainContent">
+        <div class="special-product-cont">
+          <div class="slider-cont">
+            <label class="color-mode-switch">
+              <input
+                type="checkbox"
+                id="themeCheckBox"
+                checked
+                onchange="changeTheme(this)"
+              />
+              <span class="current-theme-icon-cont"
+                ><i class="fas fa-moon" id="currentThemeIcon"></i
+              ></span>
+              <span class="color-span"></span>
+            </label>
+          </div>
+          <h2 class="special-product-title">
+            Winter is Cold, Apples don't Care
+          </h2>
+          <img
+            src="../static/img/special-apples.jpg"
+            alt="red-apples-image"
+            class="special-image left-image"
+          />
+          <p class="special-product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+            vero ullam sunt est ad facere optio quaerat sint, explicabo nesciunt
+            adipisci nisi possimus praesentium ratione. Molestias modi assumenda
+            illo. Hic ea delectus saepe eaque quasi modi architecto, laudantium
+            repellendus laborum, quis impedit nobis velit reprehenderit rerum
+            beatae dolor aliquam excepturi, accusamus suscipit consequatur ab?
+            Iste distinctio molestiae quaerat! Fugit molestias magnam aliquam
+            commodi velit quo vero placeat eligendi suscipit necessitatibus sunt
+            ex, dicta cumque voluptatibus explicabo veritatis ab pariatur et
+            eveniet nemo, minima, dolores perferendis delectus.
+            <br />
+            <br />
+            Eligendi dolores quae, perferendis dolorum blanditiis temporibus
+            dolore, debitis obcaecati, minus optio accusamus aspernatur. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolor
+            odit delectus eum eaque illum quidem repudiandae natus placeat
+            facilis error cupiditate enim hic omnis corrupti ex unde accusantium
+            nam rerum odio aut, veritatis excepturi quasi. Odio enim ratione
+            incidunt recusandae cupiditate veniam cum ipsam. Facere nulla
+            numquam quibusdam! Accusamus a animi, repudiandae cupiditate quos
+            assumenda temporibus mollitia ab laboriosam rem, voluptas nemo
+            quisquam culpa provident quis beatae perferendis maiores dolorem
+            optio omnis commodi.
+            <br />
+            <br />
+            Beatae, nisi assumenda. Molestias debitis incidunt voluptate optio
+            earum est libero aliquam dolorum culpa. Voluptatibus nostrum dolorum
+            ut, facere eius unde porro excepturi dicta mollitia adipisci.
+          </p>
+        </div>
+        <div class="special-product-cont-2">
+          <h2 class="special-product-title">Salade de Fruit Season Picks</h2>
+          <img
+            src="../static/img/special-fruit-salad.jpg"
+            alt="red-apples-image"
+            class="special-image right-image"
+          />
+          <p class="special-product-desc-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+            vero ullam sunt est ad facere optio quaerat sint, explicabo nesciunt
+            adipisci nisi possimus praesentium ratione. Molestias modi assumenda
+            illo. Hic ea delectus saepe eaque quasi modi architecto, laudantium
+            repellendus laborum, quis impedit nobis velit reprehenderit rerum
+            beatae dolor aliquam excepturi, accusamus suscipit consequatur ab?
+            Iste distinctio molestiae quaerat! Fugit molestias magnam aliquam
+            commodi velit quo vero placeat eligendi suscipit necessitatibus sunt
+            ex, dicta cumque voluptatibus explicabo veritatis ab pariatur et
+            eveniet nemo, minima, dolores perferendis delectus.
+            <br />
+            <br />
+            Eligendi dolores quae, perferendis dolorum blanditiis temporibus
+            dolore, debitis obcaecati, minus optio accusamus aspernatur. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolor
+            odit delectus eum eaque illum quidem repudiandae natus placeat
+            facilis error cupiditate enim hic omnis corrupti ex unde accusantium
+            nam rerum odio aut, veritatis excepturi quasi. Odio enim ratione
+            incidunt recusandae cupiditate veniam cum ipsam. Facere nulla
+            numquam quibusdam! Accusamus a animi, repudiandae cupiditate quos
+            assumenda temporibus mollitia ab laboriosam rem, voluptas nemo
+            quisquam culpa provident quis beatae perferendis maiores dolorem
+            optio omnis commodi.
+            <br />
+            <br />
+            Beatae, nisi assumenda. Molestias debitis incidunt voluptate optio
+            earum est libero aliquam dolorum culpa. Voluptatibus nostrum dolorum
+            ut, facere eius unde porro excepturi dicta mollitia adipisci.
+          </p>
+        </div>
+      </section>
+    </div>
+    <section id="overView">
+      <h2 class="overview-title">WHO ARE WE?</h2>
+      <div class="overview-flex-cont overview-flex-item">
+        <div class="overview-img-cont">
+          <img
+            src="../static/img/logo.png"
+            alt="LB's Fruit Shop Descriptive Image"
+            class="overview-img"
+          />
+        </div>
+        <div class="overview-text-cont overview-flex-item">
+          <p class="overview-text">
+            LB Fruit is an<span class="stand-out-text">
+              online fruit shop, </span
+            >fruit from all over the world, is available. We currently operate
+            in our mother country Lebanon only. Delivery in Beirut is<span
+              class="stand-out-text"
+            >
+              free of charge. </span
+            >We also deliver all to these <a href="#">places</a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime qui
+            quam, similique consequuntur voluptas expedita nesciunt enim
+            repellendus eligendi, sunt corrupti fugit nemo quae! Quia vero ipsum
+            accusantium quos et.
+          </p>
+          <p class="overview-text">
+            LB Fruit is an<span class="stand-out-text">
+              online fruit shop, </span
+            >fruit from all over the world, is available. We currently operate
+            in our mother country Lebanon only. Delivery in Beirut is<span
+              class="stand-out-text"
+            >
+              free of charge. </span
+            >We also deliver all to these <a href="#">places</a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime qui
+            quam, similique consequuntur voluptas expedita nesciunt enim
+            repellendus eligendi, sunt corrupti fugit nemo quae! Quia vero ipsum
+            accusantium quos et.
+          </p>
+          <p class="overview-text">
+            LB Fruit is an<span class="stand-out-text">
+              online fruit shop, </span
+            >fruit from all over the world, is available. We currently operate
+            in our mother country Lebanon only. Delivery in Beirut is<span
+              class="stand-out-text"
+            >
+              free of charge. </span
+            >We also deliver all to these <a href="#">places</a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime qui
+            quam, similique consequuntur voluptas expedita nesciunt enim
+            repellendus eligendi, sunt corrupti fugit nemo quae! Quia vero ipsum
+            accusantium quos et.
+          </p>
+        </div>
+      </div>
+      {% include "footer.html" %}
+    </section>
+  </body>
+  <script>
+    function changeTheme(element) {
+      let myIcon = document.getElementById("currentThemeIcon");
+      let docBody = document.getElementsByTagName("body")[0];
+      let hTwos = document.getElementsByTagName("h2");
+      let paragraphs = document.getElementsByTagName("p");
+      if (element.checked == true) {
+        myIcon.className = "fas fa-moon";
+        docBody.style.backgroundColor = "#333";
+        for (let i = 0; i < hTwos.length; i++) {
+          hTwos[i].style.color = "teal";
+        }
+        for (let i = 0; i < paragraphs.length; i++) {
+          paragraphs[i].style.color = "#fff";
+        }
+      } else {
+        myIcon.className = "fas fa-sun";
+        docBody.style.backgroundColor = "#fff";
+        for (let i = 0; i < hTwos.length; i++) {
+          hTwos[i].style.color = "#333";
+        }
+        for (let i = 0; i < paragraphs.length; i++) {
+          paragraphs[i].style.color = "#333";
+        }
+      }
+    }
+  </script>
+</html>

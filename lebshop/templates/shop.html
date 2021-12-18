@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/shop.css')}}"
+    />
+    <title>lebshop - Shop</title>
+  </head>
+  <body>
+    {% include "nav_bar.html" %} {% include "modal_msgs.html" %}
+    <div class="fruit-market-cont">
+      <header>
+        <div class="header-search-form-cont">
+          <form
+            action="{{ url_for('leb_shop_search')}}"
+            method="get"
+            enctype="multipart/form-data"
+            id="headerSearchForm"
+          >
+            <label for="fruitName" id="fruitNameLabel">Search Market</label>
+            <br />
+            <div class="input-search-icon-cont">
+              {% if keyword.split(': ')[0] == "q" %}
+              <input
+                type="text"
+                name="q"
+                onfocus="expandBox()"
+                onblur="shrinkBox()"
+                id="fruitName"
+                placeholder="app | apples | apples - red"
+                value="{{ keyword.split(': ')[1] }}"
+                autocomplete="off"
+              />
+              {% else %}
+              <input
+                type="text"
+                name="q"
+                onfocus="expandBox()"
+                onblur="shrinkBox()"
+                id="fruitName"
+                placeholder="app | apples | apples - red"
+                autocomplete="off"
+              />
+              {% endif %}
+              <button
+                id="fruitNameSubmit"
+                onfocus="expandBox()"
+                onblur="shrinkBox()"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </header>
+      <h1 class="result-count-header">
+        Showing Total of {{ fruits_data | length }} Fruits
+      </h1>
+      <div class="fruit-market-flex-cont">
+        {% if not fruits_data: %}
+        <h1 class="no-results-header">
+          No results for
+          <span class="focus-text-span" style="color: red"
+            >'{{ keyword }}'</span
+          >
+          Try another Keyword.
+        </h1>
+        {% else %} {% for fruit in fruits_data: %}
+        <div class="fruit-item">
+          {% if not fruit.in_stock: %} {% endif %} {% if not fruit.in_stock: %}
+          <div class="fruit-img-cont">
+            <img
+              src="{{ url_for('static', filename='img/marktet_imgs/' + fruit.image_path) }}"
+              alt=""
+              class="fruit-img"
+            />
+            <div class="fruit-img-overlay out-of-stock-text">
+              <span class="overlay-text">OUT OF STOCK</span>
+            </div>
+          </div>
+          <div
+            class="fruit-info-cont"
+            style="text-decoration: line-through; color: #fff"
+          >
+            <p class="fruit-name">{{ fruit.name }}</p>
+            <!-- <p class="fruit-desc"></p> -->
+          </div>
+          {% else %}
+          <a
+            href="{{ url_for('product_view', product_id=fruit.id)}}"
+            style="text-decoration: none"
+            ><div class="fruit-img-cont">
+              <img
+                src="{{ url_for('static', filename='img/marktet_imgs/' + fruit.image_path) }}"
+                alt=""
+                class="fruit-img"
+              />
+              <div class="fruit-img-overlay">
+                <span class="overlay-text">SHOP NOW</span>
+              </div>
+            </div>
+            <div class="fruit-info-cont">
+              <p class="fruit-name">{{ fruit.name }}</p>
+              <!-- <p class="fruit-desc"></p> -->
+            </div></a
+          >
+          {% endif %}
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </body>
+  <script>
+    let sBoxCont = document.getElementsByClassName("input-search-icon-cont")[0];
+    function expandBox() {
+      sBoxCont.style.maxWidth = "52vw";
+    }
+    function shrinkBox() {
+      sBoxCont.style.maxWidth = "17vw";
+    }
+  </script>
+</html>

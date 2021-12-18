@@ -1,0 +1,119 @@
+<div class="my_nav-flex-cont">
+  <div class="my_logo-cont nav-flex-item">
+    <span
+      ><a href="{{ url_for('home')}}" class="my_logo-link">LB FRUIT</a></span
+    >
+  </div>
+  <div class="my_nav-cont nav-flex-item">
+    <div class="icon menu-toggle">
+      <input type="checkbox" onchange="toggleNavBar(this)" />
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <span class="my_nav-item"
+        ><a href="{{ url_for('home')}}" class="my_nav-link"
+          ><i class="fas fa-home"></i> HOME</a
+        ></span
+      >
+      <div class="my_nav-item">
+        <a class="my_nav-link my_shop-link" href="#"
+          ><i class="fas fa-store"></i> MARKET
+          <span class="almost-down-arow">^</span></a
+        >
+        <div class="shop-link-items-cont">
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='juicy')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-cocktail"></i> JUICY</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='green')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-leaf"></i> GREEN</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='sour')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-grin-tongue"></i> SOUR</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='sweet')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-candy-cane"></i> SWEET</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='tropical')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-globe-africa"></i> TROPICAL</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='berries')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-holly-berry"></i> BERRIES</a
+            >
+          </span>
+          <span class="shop-link-item">
+            <a
+              href="{{ url_for('leb_shop', category='all')}}"
+              class="shop-link-item-link"
+              ><i class="fas fa-globe"></i> All</a
+            >
+          </span>
+        </div>
+      </div>
+      <!-- <span class="my_nav-item"
+        ><a href="#" class="my_nav-link">ABOUT</a>
+      </span> -->
+      {% if not current_user.is_authenticated %}
+      <span class="my_nav-item"
+        ><a href="{{ url_for('login')}}" class="my_nav-link"
+          ><i class="fas fa-sign-in-alt"></i> LOGIN</a
+        >
+      </span>
+      <span class="my_nav-item"
+        ><a href="{{ url_for('signup') }}" class="my_nav-link"
+          ><i class="fas fa-user-plus"></i> SIGNUP</a
+        ></span
+      >
+      {% else %}
+      <div class="my_nav-item my-user-menu">
+        <a href="#" class="my_nav-link user-menu-link"
+          ><i class="far fa-user-circle"></i> {{ current_user.user_name }}
+          <span class="almost-down-arow">^</span></a
+        >
+        <div class="user-menu-items">
+          <span class="my-menu-item">
+            <a href="{{ url_for('cart')}}" class="user-item-link"
+              ><i class="fas fa-shopping-cart"></i> CART
+              <span class="cart-items-count">0</span></a
+            >
+          </span>
+          <span class="my-menu-item">
+            <a href="{{ url_for('user_profile')}}" class="user-item-link"
+              ><i class="fas fa-cogs"></i> PROFILE</a
+            >
+          </span>
+          <span class="my-menu-item">
+            <a href="{{ url_for('logout') }}" class="user-item-link"
+              ><i class="fas fa-sign-out-alt"></i> LOGOUT</a
+            >
+          </span>
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+  </div>
+</div>

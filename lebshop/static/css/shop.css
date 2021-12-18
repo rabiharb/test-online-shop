@@ -1,0 +1,174 @@
+body {
+  box-sizing: border-box;
+  background: url(../img/wtfff.png), #333;
+}
+.no-results-header {
+  color: #ccc;
+  margin: 0 auto;
+}
+.fruit-market-cont {
+  width: 70%;
+  margin: 200px auto 0;
+}
+.header-search-form-cont {
+  margin: 50px 0;
+}
+#fruitNameLabel {
+  line-height: 2;
+  font-size: 1.5rem;
+  color: #eaeaea;
+  font-weight: 900;
+}
+.input-search-icon-cont {
+  position: relative;
+  transition: 200ms;
+  max-width: 17vw;
+  min-width: 300px;
+}
+#fruitName {
+  width: 100%;
+  transition: 200ms;
+  line-height: 2;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+#fruitNameSubmit {
+  outline: none;
+  transition: 200ms;
+  position: absolute;
+  right: 10px;
+  line-height: 2;
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: #ccc;
+  cursor: pointer;
+  border: none;
+}
+#fruitName:focus,
+#fruitName:hover {
+  box-shadow: 0 0 10px teal;
+}
+#fruitNameSubmit:focus,
+#fruitNameSubmit:hover {
+  color: teal;
+}
+.result-count-header {
+  color: #ccc;
+  margin-bottom: 100px;
+}
+.fruit-market-flex-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fruit-item {
+  position: relative;
+  flex-basis: 28%;
+  border-bottom: 3px solid #444;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.fruit-info-cont {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+.fruit-name {
+  margin: 10px 0;
+  color: teal;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.fruit-desc {
+  margin: 10px 0;
+  color: rgb(3, 187, 187);
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.fruit-img {
+  width: 100%;
+  height: 25vw;
+  position: relative;
+  transition: 200ms ease-in;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2), 1px 1px 3px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.fruit-img-overlay {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  transition: 200ms ease-in;
+  opacity: 0;
+  left: 40%;
+  top: 0%;
+  height: 90%;
+  width: 100%;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-text {
+  border: 2px solid #0275d8;
+  border-radius: 4px;
+  color: #0275d8;
+  padding: 0.5rem 1rem;
+}
+.fruit-img-cont:hover .fruit-img {
+  transform: scale(1.5);
+  opacity: 0.15;
+}
+.fruit-img-cont:hover .fruit-img-overlay {
+  left: 0%;
+  opacity: 1;
+}
+
+.stock-out-label {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  z-index: 100;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .fruit-name {
+    font-size: 1.2rem;
+  }
+  .fruit-market-cont {
+    width: 95%;
+  }
+  .fruit-item {
+    flex-basis: 45%;
+  }
+  .fruit-img-cont > img {
+    width: 100%;
+    height: 25vw;
+  }
+  .fruit-img-cont:hover .fruit-img {
+    transform: none;
+    opacity: 1;
+  }
+  .fruit-img-overlay {
+    left: 0%;
+    opacity: 1;
+    font-size: 0.8rem;
+    top: -10%;
+  }
+  .overlay-text {
+    padding: 0.2rem 0.2rem;
+  }
+}

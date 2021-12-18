@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/product_view.css')}}"
+    />
+    <title>lebshop - Product View - {{ product.name }}</title>
+    <script>
+      function addItem(showAlert) {
+        let quantity = document.getElementById("amountBox").value;
+        let itemId = document.getElementById("fruitId").value;
+        $.ajax({
+          type: "POST",
+          url: "{{ url_for('add_item')}}",
+          data: {
+            quantity: quantity,
+            itemId: itemId,
+          },
+          success: (data) => {
+            getItemsCount();
+            let amountBox = document.getElementById("amountBox");
+            amountBox.value = 1;
+            updatePrice(1);
+            if (showAlert == true) {
+              if (data == "increment") {
+                window.alert("Item amount added to item in cart.");
+              } else {
+                window.alert("Item added to cart.");
+              }
+            }
+          },
+          error: () => {
+            window.alert(
+              "An error occured while trying to add item to cart, please contact us if this continues."
+            );
+          },
+        });
+      }
+    </script>
+    <style>
+      header {
+        background: url("{{ url_for('static', filename='img/marktet_imgs/' + product.image_path)}}");
+        background-size: 100% 400%;
+        background-position: -50%;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "nav_bar.html"%}
+    <header>
+      <h1 class="porduct-desc-header">{{ product.desc }}</h1>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" id="mediumHidden">
+        <polygon fill="#333" points="0,100 100,0 100,100" />
+      </svg>
+    </header>
+    <section id="mainContent">
+      <div class="flex-cont">
+        <div class="amount-cont flex-item">
+          <form
+            onsubmit="checkOutWithItem()"
+            id="checkOutForm"
+            method="post"
+            enctype="multipart/form-data"
+            onkeydown="return event.key != 'Enter';"
+          >
+            <div class="mobile-center">
+              <span class="input-uom">KG</span>
+              <button
+                type="button"
+                class="decrease-btn qty-btn"
+                onclick="decreaseAmount()"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                name="amountBox"
+                id="amountBox"
+                value="1"
+                min="1"
+                max="9999"
+                step="0.5"
+                onchange="checkValue(this)"
+                onkeydown="enterUpdate(event, this)"
+              />
+              <button
+                type="button"
+                class="increse-btn qty-btn"
+                onclick="increaseAmount()"
+              >
+                +
+              </button>
+            </div>
+            <input
+              type="hidden"
+              name="fruitId"
+              id="fruitId"
+              value="{{ product.id }}"
+            />
+            <br /><br />
+            <input type="submit" id="checkOutBtn" value="CHECK OUT" />
+            <br /><br />
+            {% if current_user.is_authenticated: %}
+            <input
+              type="button"
+              id="addToCartBtn"
+              value="ADD TO CART"
+              onclick="addItem(true)"
+            />
+            {% else: %}
+            <input type="submit" id="addToCartBtn" value="ADD TO CART" />
+            {% endif %}
+          </form>
+        </div>
+        <div class="info-cont flex-item">
+          <h3 class="product-name-header">{{ product.name }}</h3>
+          <h3 class="product-price-header">
+            {{ product.currency}}{{ '%0.2f' % product.price|float }}
+          </h3>
+        </div>
+      </div>
+      {% include "footer.html" %}
+    </section>
+    <script src="{{ url_for('static', filename='js/product_view.js')}}"></script>
+    <script>
+      function updatePrice(value) {
+        let priceHeader = document.getElementsByClassName(
+          "product-price-header"
+        )[0];
+        priceHeader.innerHTML =
+          "{{ product.currency }}" +
+          parseFloat("{{ product.price }}" * value).toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+          });
+        priceHeader.style.background = "#fff";
+        setInterval(() => {
+          priceHeader.style.background = "#333";
+        }, 100);
+      }
+      function updateCartItemsCount() {
+        let itemsCountSpan =
+          document.getElementsByClassName("cart-items-count")[0];
+        itemsCountSpan.innerText = parseInt(itemsCountSpan.innerText) + 1;
+      }
+      function checkOutWithItem() {
+        let checkOutForm = document.getElementById("checkOutForm");
+        checkOutForm.setAttribute(
+          "action",
+          "{{ url_for('create_checkout_session') }}"
+        );
+        ("{% if current_user.is_authenticated: %}");
+        addItem(false);
+        ("{% endif %}");
+        checkOutForm.submit();
+      }
+    </script>
+  </body>
+</html>

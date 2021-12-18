@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/user_profile.css')}}"
+    />
+    <title>lebshop - {{ current_user.name }} profile</title>
+  </head>
+  <body>
+    {% include "nav_bar.html" %}
+    <section id="userDashboard">
+      <div class="dashboard-icon-cont">
+        <p
+          style="color: #ccc; margin-right: 20px"
+          title="use this card number on checkout, double-click to copy."
+        >
+          TEST CARD:
+          <button
+            class="card-number-span focus-text"
+            style="
+              cursor: pointer;
+              border: none;
+              outline: none;
+              background-color: #333;
+              position: relative;
+              display: inline-block;
+            "
+            ondblclick="alertCopy(this)"
+          >
+            4242 4242 4242 4242
+            <span class="copied-pop-up" title="double click to copy"
+              >number copied!</span
+            >
+          </button>
+        </p>
+        <i class="fas fa-user-cog" title="account settings"></i>
+      </div>
+    </section>
+    <section id="userInfo">
+      <div class="user-sessions-cont">
+        <div class="user-session-item flex-cont user-session-header">
+          <p class="id-text flex-item">Identifying number:</p>
+          <p class="date-text flex-item">Date:</p>
+          <p class="total-text flex-item">Total paid:</p>
+          <p class="number-items-text flex-item">Items bought:</p>
+          <p class="payment-method-text flex-item">Payment method:</p>
+        </div>
+        {% for session in user_sessions[:3]: %}
+        <div class="user-session-item flex-cont">
+          <p class="id-text flex-item">
+            <span class="focus-text">{{ session.id }}</span>
+          </p>
+          <p class="date-text flex-item">
+            <span class="focus-text"
+              >{{ session.session_date}}, {{ date_diffs[session.id]["time_diff"]
+              }} {{ date_diffs[session.id]["time_uom"] }} ago</span
+            >
+          </p>
+          <p class="total-text flex-item">
+            <span class="focus-text"
+              >{{ session.total_amount }} {{ session.currency }}</span
+            >
+          </p>
+          <p class="number-items-text flex-item">
+            <span class="focus-text">{{ session.items_count }}</span>
+          </p>
+          <p class="payment-method-text flex-item">
+            <span class="focus-text">{{ session.payment_method }}</span>
+          </p>
+        </div>
+        {% endfor %}
+        <div id="seeAll">
+          {% for session in user_sessions[3:]: %}
+          <div class="user-session-item flex-cont">
+            <p class="id-text flex-item">
+              <span class="focus-text">{{ session.id }}</span>
+            </p>
+            <p class="date-text flex-item">
+              <span class="focus-text"
+                >{{ session.session_date}}, {{
+                date_diffs[session.id]["time_diff"] }} {{
+                date_diffs[session.id]["time_uom"] }} ago</span
+              >
+            </p>
+            <p class="total-text flex-item">
+              <span class="focus-text"
+                >{{ session.total_amount }} {{ session.currency }}</span
+              >
+            </p>
+            <p class="number-items-text flex-item">
+              <span class="focus-text">{{ session.items_count }}</span>
+            </p>
+            <p class="payment-method-text flex-item">
+              <span class="focus-text">{{ session.payment_method }}</span>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% if user_sessions[3:]: %}
+    <button type="button" id="sellAllBtn" onclick="displaySeeAll(this)">
+      Show All
+    </button>
+    {% endif %} {% include "footer.html" %}
+  </body>
+  <script>
+    function displaySeeAll(element) {
+      let hiddenSection = document.getElementById("seeAll");
+      if (hiddenSection.style.maxHeight != "1000px") {
+        element.innerText = "Hide";
+        hiddenSection.style.maxHeight = "1000px";
+        hiddenSection.style.transitionTimingFunction = "ease-in";
+      } else {
+        hiddenSection.style.transitionTimingFunction = "step-start";
+        element.innerText = "Show All";
+        hiddenSection.style.maxHeight = "0";
+      }
+    }
+    function alertCopy(element) {
+      let popAlert = document.getElementsByClassName("copied-pop-up")[0];
+      popAlert.style.opacity = "1";
+      navigator.clipboard.writeText(element.innerText.split("n")[0]);
+      setTimeout(() => {
+        popAlert.style.opacity = "0";
+      }, 400);
+    }
+  </script>
+</html>

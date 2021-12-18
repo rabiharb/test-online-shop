@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <script>
+      function updateAmount(value, index) {
+        ("{% for item_count in range(cart | length) %}");
+        if ("{{ item_count }}" == index) {
+          $.ajax({
+            type: "POST",
+            url: "{{ url_for('edit_amount')}}",
+            data: {
+              fruitAmount: value,
+              fruitName: "{{ cart[item_count].fruit_obj.name }}",
+            },
+            error: function () {
+              alert(
+                "Some error encountered when trying to update cart, if this keep happening please contact us."
+              );
+            },
+          });
+        }
+        ("{% endfor %}");
+      }
+      function removeItem(index) {
+        let selectedItemCont =
+          document.getElementsByClassName("item-cont")[index];
+        selectedItemCont.style.border = "3px solid #fff";
+        setTimeout(function () {
+          if (window.confirm("are you sure you want to delete this item?")) {
+            ("{% for item_count in range(cart | length) %}");
+            if ("{{ item_count }}" == index) {
+              $.ajax({
+                type: "POST",
+                url: "{{ url_for('remove_cart_item')}}",
+                data: {
+                  fruitName: "{{ cart[item_count].fruit_obj.name }}",
+                },
+                success: function () {
+                  alert(
+                    "{{ cart[item_count].fruit_obj.name }} removed successfuly."
+                  );
+                  location.reload();
+                },
+                error: function () {
+                  alert(
+                    "Some error encountered when trying to remove item, if this keep happening please contact us."
+                  );
+                },
+              });
+            }
+            ("{% endfor %}");
+          }
+          selectedItemCont.style.border = "none";
+        }, 10);
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/cart.css')}}"
+    />
+    <title>LebShop - Cart</title>
+  </head>
+  <body>
+    {% include "nav_bar.html" %} {% include "modal_msgs.html" %} {% if cart %}
+    <div class="form-info-cont">
+      <div class="check-out-form-cont">
+        <form
+          action="{{ url_for('create_checkout_session')}}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input type="submit" id="checkOutBtn" value="CHECK OUT" />
+        </form>
+      </div>
+      <div class="total-info-cont">
+        <h1 class="total-header">
+          Total: {{ cart[0].fruit_obj.currency }} {{ '%0.2f' | format(total) }}
+        </h1>
+      </div>
+    </div>
+    {% endif %}
+    <div class="items-main-wrapper">
+      {% if not cart %}
+      <h1 class="empty-cart-header">
+        Cart is empty, checkout shop to add items.
+      </h1>
+      {% else %} {% for item in cart: %}
+      <div class="item-cont row-flex-cont">
+        <div class="img-cont flex-item">
+          <img
+            src="{{ url_for('static', filename='img/marktet_imgs/' + item.fruit_obj.image_path)}}"
+            alt="{{ item.fruit_obj.name }} image"
+            class="item-img"
+          />
+        </div>
+        <div class="info-cont flex-item">
+          <h1 class="">{{ item.fruit_obj.name }}</h1>
+          <h1 class="product-price-header">
+            {{ item.fruit_obj.currency }} {{'%0.2f'| format(
+            item.fruit_obj.price * item.fruit_amount )}}
+          </h1>
+        </div>
+        <div class="controls-cont flex-item">
+          <button
+            type="button"
+            class="decrease-btn qty-btn"
+            onclick="decreaseAmount('{{ loop.index }}')"
+          >
+            -
+          </button>
+          <input
+            type="number"
+            name="amountBox"
+            class="amount-box"
+            value="{{ item.fruit_amount }}"
+            min="1"
+            max="9999"
+            step="0.5"
+            onchange="checkValue(this, '{{ loop.index }}')"
+            onkeydown="enterUpdate(event, this, '{{ loop.index }}')"
+          />
+          <button
+            type="button"
+            class="increse-btn qty-btn"
+            onclick="increaseAmount('{{ loop.index }}')"
+          >
+            +
+          </button>
+          <input
+            type="hidden"
+            name="fruitId"
+            id="fruitId"
+            value="{{ item.id }}"
+          />
+        </div>
+        <div
+          class="remove-btn flex-item"
+          title="remove item from cart"
+          onclick="removeItem('{{ loop.index - 1 }}')"
+        >
+          &times;
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='js/cart.js')}}"></script>
+  <script>
+    function updatePrice(value, index) {
+      let priceHeader = document.getElementsByClassName("product-price-header")[
+        index
+      ];
+      let totalHeader = document.getElementsByClassName("total-header")[0];
+      let amountInputs = document.getElementsByClassName("amount-box");
+      let total = 0;
+      ("{% for item_count in range(cart | length) %}");
+      if ("{{ item_count }}" == index) {
+        priceHeader.innerHTML =
+          "{{ cart[item_count].fruit_obj.currency }}" +
+          " " +
+          parseFloat(
+            "{{ cart[item_count].fruit_obj.price }}" * value
+          ).toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+          });
+        priceHeader.style.background = "#fff";
+        setInterval(() => {
+          priceHeader.style.background = "#333";
+        }, 100);
+        updateAmount(value, index);
+      }
+      total +=
+        parseFloat("{{ cart[item_count].fruit_obj.price | float }}") *
+        amountInputs["{{ item_count }}"].value;
+      ("{% endfor %}");
+      total = parseFloat(total).toFixed(2);
+      ("{% if cart: %}");
+      totalHeader.innerText =
+        "Total: {{ cart[0].fruit_obj.currency }} " + total;
+      ("{% endif %}");
+    }
+  </script>
+</html>

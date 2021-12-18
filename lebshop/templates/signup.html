@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include "head_data.html" %}
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/signup.css')}}"
+    />
+    <title>LebShop - SignUp Page</title>
+  </head>
+  <body>
+    {% include "nav_bar.html" %} {% include "modal_msgs.html" %}
+    <div class="logo-cont">
+      <img src="../static/img/logo.png" alt="lebshop's main logo" />
+    </div>
+    <div class="form-cont">
+      <form
+        action="{{ url_for('signup')}}"
+        method="post"
+        class="form-register"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        {{ form.csrf_token }} {{ form.user_name.label() }} {{
+        form.user_name(class="form-control text-light my_form_control",
+        placeholder="first_last (name)") }}
+        <br />
+        {{ form.email.label() }} {{ form.email(class="form-control text-light
+        my_form_control", placeholder="example@info.com") }}
+        <br />
+        {{ form.password.label() }} {{ form.password(class="form-control
+        text-light my_form_control", placeholder="8 Characters min") }}
+        <br />
+        {{ form.confirm_password.label() }} {{
+        form.confirm_password(placeholder="Repeat Password Carefully",
+        class="form-control text-light my_form_control" )}}
+        <br />
+        <br />
+        <small style="text-align: right; display: block"
+          >Already have an account?
+          <a href="{{ url_for('login')}}">Sign-in here.</a></small
+        >
+        {{ form.submit(class="btn btn-lg btn-block btn-outline-primary
+        text-light", placeholder="User Name") }}
+      </form>
+    </div>
+    {% include "footer.html" %}
+  </body>
+</html>

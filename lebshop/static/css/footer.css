@@ -1,0 +1,20 @@
+footer {
+  margin-top: 100px;
+  padding: 20px 0;
+  background-color: #244648;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer-copy {
+  color: #ccc;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.footer-link {
+  color: #ccc;
+  text-decoration: none;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.footer-link:hover {
+  color: #fff;
+}
