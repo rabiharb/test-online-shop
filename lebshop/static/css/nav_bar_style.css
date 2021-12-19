@@ -99,11 +99,16 @@ nav {
 .shop-link-item:hover > a::after {
   width: 100%;
 }
-.my_nav-item:hover .shop-link-items-cont {
-  display: flex;
+.shop-nav-item {
+  user-select: none;
 }
-.my_nav-item:hover .almost-down-arow {
-  transform: none;
+@media (hover: hover) {
+  .shop-nav-item:hover .shop-link-items-cont {
+    display: flex;
+  }
+  .my_nav-item:hover .almost-down-arow {
+    transform: none;
+  }
 }
 
 /* -------------------------------------------- User-Menu */
@@ -229,24 +234,38 @@ nav {
 @media (max-width: 768px) {
   nav {
     position: absolute;
+    display: block;
     background-color: #333;
     width: 100%;
-    top: 0;
+    top: -300%;
     left: 0;
     transition: 250ms ease;
     text-align: center;
-    z-index: -99999;
-    opacity: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
   .current-theme-icon-cont {
     top: -80%;
   }
-  .my_nav-item {
-    z-index: -9999;
+  .shop-link-items-cont {
+    position: static;
+    width: 100%;
+    z-index: 99999999999999;
+    display: none;
+  }
+  .shop-link-item,
+  .shop-link-item-link {
+    display: block;
   }
   .my_nav-flex-cont {
     position: relative;
-    z-index: 9999999;
+    display: block;
+  }
+  .my_nav-item {
+    display: block;
+  }
+  .my_nav-link {
+    display: block;
+    padding: 1rem 0;
   }
   .icon {
     position: absolute;
@@ -254,8 +273,5 @@ nav {
     right: 20px;
     transform: translateY(-50%);
     display: block;
-  }
-  .shop-link-items-cont {
-    width: 200px;
   }
 }

@@ -8,7 +8,7 @@ body {
 }
 .fruit-market-cont {
   width: 70%;
-  margin: 200px auto 0;
+  margin: 0 auto 0;
 }
 .header-search-form-cont {
   margin: 50px 0;
@@ -143,32 +143,33 @@ body {
 }
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  body {
+    background: #444;
+    margin: 0 initial;
   }
   .fruit-name {
     font-size: 1.2rem;
   }
   .fruit-market-cont {
     width: 95%;
+    background-color: #333;
+    padding: 0 0.5rem;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.5);
   }
   .fruit-item {
     flex-basis: 45%;
   }
   .fruit-img-cont > img {
     width: 100%;
-    height: 25vw;
+    height: 50vw;
   }
   .fruit-img-cont:hover .fruit-img {
     transform: none;
     opacity: 1;
   }
   .fruit-img-overlay {
-    left: 0%;
-    opacity: 1;
-    font-size: 0.8rem;
-    top: -10%;
-  }
-  .overlay-text {
-    padding: 0.2rem 0.2rem;
+    display: none;
   }
 }

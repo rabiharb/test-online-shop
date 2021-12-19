@@ -44,6 +44,7 @@ body {
   position: relative;
   z-index: 9;
   left: -30px;
+  top: 2px;
   color: burlywood;
 }
 .slider-cont {
@@ -168,6 +169,9 @@ body {
 @media (max-width: 890px) {
   html {
     font-size: 14px;
+  }
+  .special-image {
+    position: static;
   }
   .logo-cont {
     display: none;

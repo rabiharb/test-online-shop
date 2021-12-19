@@ -8,6 +8,11 @@ from datetime import datetime
 import stripe
 
 
+# TODO - Fix cart go back doesn't update price (update price with quantity using js)
+# TODO - Fix check-out internal server issue
+# TODO - Check what's wrong with postgre, currently using sqlLite
+
+
 @ login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
