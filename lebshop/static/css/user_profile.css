@@ -1,5 +1,7 @@
 body {
   background-color: #333;
+  width: 80%;
+  margin: 0 auto;
 }
 .my_nav-flex-cont {
   background: url(../img/wtfff.png), #8b8000;
@@ -31,17 +33,24 @@ body {
   background-color: #ccc;
   font-size: 0.7rem;
 }
-.card-number-span:hover {
-  opacity: 0.7;
+.card-number-span {
+  user-select: none;
+}
+@media (hover: hover) {
+  .card-number-span:hover {
+    opacity: 0.7;
+  }
 }
 .focus-text {
   color: khaki;
 }
 .user-session-item {
   display: flex;
+  flex-wrap: nowrap;
   box-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
   justify-content: space-around;
   padding: 1.2rem 0;
+  overflow: hidden;
 }
 .user-session-header {
   background: url(../img/wtfff.png);
@@ -50,6 +59,7 @@ body {
 }
 .flex-item {
   flex-basis: 18%;
+  overflow-x: auto;
 }
 .dashboard-icon-cont {
   display: flex;
@@ -67,10 +77,10 @@ body {
   color: #eee;
 }
 #seeAll {
-  max-height: 0;
+  height: 100%;
+  max-height: 0px;
+  transition: max-height 1s ease;
   overflow: hidden;
-  transition: max-height 500ms ease-in;
-  transition-delay: 0;
 }
 #sellAllBtn {
   transition: 200ms;
@@ -93,6 +103,18 @@ footer {
 
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  body {
+    width: 98%;
+  }
+  .user-sessions-cont {
+    overflow: auto;
+  }
+  .flex-item {
+    flex-basis: 15%;
+  }
+  .user-session-item {
+    width: 200%;
   }
 }

@@ -140,7 +140,7 @@
 .cart-items-count {
   position: absolute;
   top: 25%;
-  left: 65px;
+  left: 4.5rem;
   background-color: #232323;
   border-radius: 50%;
   padding: 0 0.2rem;
@@ -255,11 +255,11 @@
     position: static;
     width: 100%;
     z-index: 99999999999999;
-    transition: 300ms ease;
-    height: max-content;
+    transition: 300ms ease-in;
+    height: 0px;
     max-height: 0px;
     display: block;
-    overflow: hidden;
+    overflow-y: hidden;
   }
   .shop-link-item,
   .shop-link-item-link {
@@ -278,9 +278,10 @@
     position: static;
     width: 100%;
     z-index: 99999999999999;
-    transition: 400ms ease;
+    transition: 200ms ease-in;
+    height: 0px;
     max-height: 0px;
-    overflow: hidden;
+    overflow-y: hidden;
     display: block;
   }
   .my-menu-item,

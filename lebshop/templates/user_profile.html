@@ -112,14 +112,20 @@
   <script>
     function displaySeeAll(element) {
       let hiddenSection = document.getElementById("seeAll");
-      if (hiddenSection.style.maxHeight != "1000px") {
+      let infoSection =
+        document.getElementsByClassName("user-sessions-cont")[0];
+      if (hiddenSection.style.maxHeight != "500px") {
+        infoSection.style.overflow = "auto";
         element.innerText = "Hide";
-        hiddenSection.style.maxHeight = "1000px";
-        hiddenSection.style.transitionTimingFunction = "ease-in";
+        hiddenSection.style.overflow = "visible";
+        hiddenSection.style.maxHeight = "500px";
       } else {
-        hiddenSection.style.transitionTimingFunction = "step-start";
         element.innerText = "Show All";
         hiddenSection.style.maxHeight = "0";
+        if (screen.width > 768) {
+          infoSection.style.overflow = "visible";
+        }
+        hiddenSection.style.overflow = "hidden";
       }
     }
     function alertCopy(element) {

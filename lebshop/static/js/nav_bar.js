@@ -26,13 +26,13 @@ function expandShop() {
 
   if (screen.width <= 768) {
     if (shopItems.style.maxHeight != "2000px") {
+      shopItems.style.overflowY = "scroll";
       shopItems.style.maxHeight = "2000px";
       shopItems.style.height = "300px";
-      shopItems.style.overflowY = "scroll";
     } else {
       shopItems.style.maxHeight = "0";
       shopItems.style.height = "0";
-      shopItems.style.overflow = "hidden";
+      shopItems.style.overflowY = "hidden";
     }
   }
 }
@@ -40,10 +40,14 @@ function expandUser() {
   let userItems = document.getElementsByClassName("user-menu-items")[0];
 
   if (screen.width <= 768) {
-    if (userItems.style.maxHeight != "2000px") {
-      userItems.style.maxHeight = "2000px";
+    if (userItems.style.maxHeight != "300px") {
+      userItems.style.overflowY = "scroll";
+      userItems.style.maxHeight = "300px";
+      userItems.style.height = "100%";
     } else {
       userItems.style.maxHeight = "0";
+      userItems.style.height = "0";
+      userItems.style.overflowY = "hidden";
     }
   }
 }

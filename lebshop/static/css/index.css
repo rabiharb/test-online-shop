@@ -153,7 +153,7 @@ body {
 }
 @media (max-width: 890px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
   .special-image {
     float: none;
