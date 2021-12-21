@@ -157,7 +157,7 @@ def cart():
 @login_required
 def create_checkout_session():
     price_id_data = []
-    with open(r"lebshop\json\id_price.json") as f:
+    with open("lebshop/json/id_price.json") as f:
         price_id_data = json.load(f)[0]
     line_items = []
     cart = ShoppingCart.query.filter_by(owner_id=current_user.id).first()

@@ -248,6 +248,9 @@
     text-align: left;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
+  .my_nav-flex-cont {
+    overflow: hidden;
+  }
   .shop-link-items-cont {
     position: static;
     width: 100%;
