@@ -1,19 +1,23 @@
 function toggleNavBar(element) {
   let my_nav = document.getElementsByTagName("nav")[0];
-  // let my_nav_items = document.getElementsByClassName("my_nav-item");
+  let navCont = document.getElementsByClassName("my_nav-flex-cont")[0];
+  let body = document.getElementsByTagName("body")[0];
+
   if (element.value == "on") {
-    my_nav.style.top = "100%";
-    my_nav.style.zIndex = "9999";
+    navCont.style.overflow = "visible";
+    my_nav.style.left = "0";
+    my_nav.style.zIndex = "9999999999";
+    my_nav.style.overflow = "visible";
     element.value = "off";
-    // for (let i = 0; i < my_nav_items.length; i++) {
-    //   my_nav_items[i].style.zIndex = "999999999999";
-    // }
+    body.style.overflow = "hidden";
   } else {
-    my_nav.style.top = "-500%";
     my_nav.style.zIndex = "-9999";
-    // for (let i = 0; i < my_nav_items.length; i++) {
-    //   my_nav_items[i].style.zIndex = "-999999999999";
-    // }
+    my_nav.style.left = "120%";
+    body.style.overflow = "visible";
+    my_nav.style.overflow = "hidden";
+    setTimeout(() => {
+      navCont.style.overflow = "hidden";
+    }, 100);
     element.value = "on";
   }
 }
@@ -21,10 +25,25 @@ function expandShop() {
   let shopItems = document.getElementsByClassName("shop-link-items-cont")[0];
 
   if (screen.width <= 768) {
-    if (shopItems.style.display != "block") {
-      shopItems.style.display = "block";
+    if (shopItems.style.maxHeight != "2000px") {
+      shopItems.style.maxHeight = "2000px";
+      shopItems.style.height = "300px";
+      shopItems.style.overflowY = "scroll";
     } else {
-      shopItems.style.display = "none";
+      shopItems.style.maxHeight = "0";
+      shopItems.style.height = "0";
+      shopItems.style.overflow = "hidden";
+    }
+  }
+}
+function expandUser() {
+  let userItems = document.getElementsByClassName("user-menu-items")[0];
+
+  if (screen.width <= 768) {
+    if (userItems.style.maxHeight != "2000px") {
+      userItems.style.maxHeight = "2000px";
+    } else {
+      userItems.style.maxHeight = "0";
     }
   }
 }

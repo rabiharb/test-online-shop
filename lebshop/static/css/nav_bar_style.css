@@ -8,9 +8,6 @@
   top: 0;
   z-index: 99999;
 }
-nav {
-  margin-right: 20px;
-}
 
 .my_nav-item {
   display: inline;
@@ -101,6 +98,7 @@ nav {
 }
 .shop-nav-item {
   user-select: none;
+  overflow: visible;
 }
 @media (hover: hover) {
   .shop-nav-item:hover .shop-link-items-cont {
@@ -141,9 +139,8 @@ nav {
 }
 .cart-items-count {
   position: absolute;
-  top: 45%;
-  left: 51%;
-  transform: translateY(-50%);
+  top: 25%;
+  left: 65px;
   background-color: #232323;
   border-radius: 50%;
   padding: 0 0.2rem;
@@ -165,15 +162,17 @@ nav {
   transition: 200ms;
   background-color: #fff;
 }
-.user-item-link:hover {
-  color: #eaeaea;
-  text-decoration: none;
-}
-.my-menu-item:hover > a::after {
-  width: 100%;
-}
-.my-user-menu:hover .user-menu-items {
-  display: block;
+@media (hover: hover) {
+  .user-item-link:hover {
+    color: #eaeaea;
+    text-decoration: none;
+  }
+  .my-menu-item:hover > a::after {
+    width: 100%;
+  }
+  .my-user-menu:hover .user-menu-items {
+    display: block;
+  }
 }
 
 /* -------------------------------------------- mobile-nav
@@ -232,41 +231,64 @@ nav {
   transform: none;
 }
 @media (max-width: 768px) {
+  .absolute-cont {
+    position: static;
+    height: auto;
+  }
   nav {
     position: absolute;
     display: block;
     background-color: #333;
     width: 100%;
-    top: -300%;
-    left: 0;
+    top: 100%;
+    left: 120%;
+    min-height: 90vh;
+    overflow-y: scroll;
     transition: 250ms ease;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  }
-  .current-theme-icon-cont {
-    top: -80%;
   }
   .shop-link-items-cont {
     position: static;
     width: 100%;
     z-index: 99999999999999;
-    display: none;
+    transition: 300ms ease;
+    height: max-content;
+    max-height: 0px;
+    display: block;
+    overflow: hidden;
   }
   .shop-link-item,
   .shop-link-item-link {
     display: block;
-  }
-  .my_nav-flex-cont {
-    position: relative;
-    display: block;
+    z-index: 99999999999999;
   }
   .my_nav-item {
     display: block;
   }
   .my_nav-link {
     display: block;
-    padding: 1rem 0;
+    padding: 1.2rem 0.5rem;
   }
+  /* user-section */
+  .user-menu-items {
+    position: static;
+    width: 100%;
+    z-index: 99999999999999;
+    transition: 400ms ease;
+    max-height: 0px;
+    overflow: hidden;
+    display: block;
+  }
+  .my-menu-item,
+  .user-item-link {
+    display: block;
+  }
+  .user-item-link {
+    display: block;
+    padding: 1.2rem 0.5rem;
+  }
+  /* end */
   .icon {
     position: absolute;
     top: 50%;

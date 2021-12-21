@@ -24,33 +24,21 @@ body {
   position: relative;
   width: 40px;
   height: 20px;
-  background-color: #ccc;
+  background-color: inherit;
   border-radius: 20px;
   cursor: pointer;
 }
-.color-span {
-  position: absolute;
-  width: 120%;
-  left: -3px;
-  height: 120%;
-  display: inline-block;
-  transition: 500ms ease-out;
-  border-radius: 20px;
-  background-color: #fff;
-}
 .current-theme-icon-cont {
+  position: relative;
   display: inline-block;
   transition: 350ms ease-out;
-  position: relative;
   z-index: 9;
-  left: -30px;
-  top: 2px;
   color: burlywood;
 }
 .slider-cont {
   text-align: right;
   position: sticky;
-  top: 100px;
+  top: 110px;
   background: transparent;
 }
 #currentThemeIcon {
@@ -58,17 +46,11 @@ body {
   color: inherit;
 }
 .color-mode-switch input {
+  position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-}
-#themeCheckBox:checked ~ .color-span {
-  background-color: #333;
-}
-#themeCheckBox:checked + .current-theme-icon-cont {
-  -webkit-transform: translateX(40px);
-  -ms-transform: translateX(40px);
-  transform: translateX(40px);
+  bottom: 0;
 }
 /* ############################### End Color Switch ########################################################### */
 
@@ -76,11 +58,14 @@ body {
 -------------------------------------------------------------------------------------- */
 #mainContent {
   margin: 0 auto;
-  width: 98%;
+  width: 100%;
+}
+#contentWrapper {
+  transition: 1s;
 }
 .special-image {
   width: 450px;
-  height: 630px;
+  height: 35vw;
   border-radius: 2px;
   position: relative;
   z-index: 999999;
@@ -171,16 +156,23 @@ body {
     font-size: 14px;
   }
   .special-image {
+    float: none;
     position: static;
-  }
-  .logo-cont {
-    display: none;
+    width: 90%;
+    height: 50vw;
+    margin: 0;
+    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.5);
   }
   body {
-    width: 100%;
+    width: 98%;
+    background-color: #444;
+    padding: 0;
   }
-  #mainContent {
-    width: 100%;
+  #contentWrapper {
+    background-color: #333;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    transition: 1s;
   }
   .special-product-desc,
   .special-product-desc-2,
@@ -198,13 +190,6 @@ body {
   .special-product-cont-2,
   .special-product-cont {
     margin-top: 50px;
-  }
-  .special-image {
-    float: none;
-    width: 80%;
-    height: 300px;
-    margin: 0;
-    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.5);
   }
   .overview-flex-cont {
     margin: 20px 0;

@@ -96,8 +96,3 @@ footer {
     font-size: 14px;
   }
 }
-@media (max-width: 480px) {
-  html {
-    font-size: 10px;
-  }
-}
