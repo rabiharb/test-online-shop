@@ -87,9 +87,6 @@
             </span>
           </div>
         </div>
-        <!-- <span class="my_nav-item"
-        ><a href="#" class="my_nav-link">ABOUT</a>
-      </span> -->
         {% if not current_user.is_authenticated %}
         <span class="my_nav-item"
           ><a href="{{ url_for('login')}}" class="my_nav-link" tabindex="-1"

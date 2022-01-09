@@ -1,20 +1,18 @@
 function toggleNavBar(element) {
-  let my_nav = document.getElementsByTagName("nav")[0];
-  let navCont = document.getElementsByClassName("my_nav-flex-cont")[0];
-  let body = document.getElementsByTagName("body")[0];
+  const my_nav = document.getElementsByTagName("nav")[0];
+  const navCont = document.getElementsByClassName("my_nav-flex-cont")[0];
+  const body = document.getElementsByTagName("body")[0];
 
   if (element.value == "on") {
     navCont.style.overflow = "visible";
-    my_nav.style.left = "0";
-    my_nav.style.zIndex = "9999999999";
-    my_nav.style.overflow = "visible";
+    my_nav.classList.remove("drown");
+    my_nav.classList.add("surface");
     element.value = "off";
     body.style.overflow = "hidden";
   } else {
-    my_nav.style.zIndex = "-9999";
-    my_nav.style.left = "120%";
+    my_nav.classList.remove("surface");
+    my_nav.classList.add("drown");
     body.style.overflow = "visible";
-    my_nav.style.overflow = "hidden";
     setTimeout(() => {
       navCont.style.overflow = "hidden";
     }, 100);

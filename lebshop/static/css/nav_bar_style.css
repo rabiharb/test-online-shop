@@ -218,7 +218,7 @@
 .icon input:checked ~ span {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
-  background: #232323;
+  background: #cdcdcd;
 }
 .icon input:checked ~ span:nth-last-child(2) {
   opacity: 0;
@@ -236,15 +236,15 @@
     height: auto;
   }
   nav {
-    position: absolute;
-    display: block;
+    position: fixed;
     background-color: #333;
     width: 100%;
-    top: 100%;
-    left: 120%;
+    top: 10%;
+    left: 30%;
+    transform: translateX(100%);
     min-height: 90vh;
     overflow-y: scroll;
-    transition: 250ms ease;
+    transition: transform 250ms ease;
     text-align: left;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
@@ -294,10 +294,23 @@
   }
   /* end */
   .icon {
+    color: #f7f7f7;
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
     display: block;
   }
+}
+
+/* JS Helper Classes */
+.surface {
+  z-index: 9999999999;
+  overflow: visible;
+  transform: translateX(0);
+}
+.drown {
+  z-index: -9999;
+  overflow: hidden;
+  transform: translateX(100%);
 }

@@ -26,5 +26,5 @@ login_manager.login_message_category = "info"
 
 stripe.api_key = app.config["STRIPE_SECRET_KEY"]
 
-# -------------------------------------- #
+# ------------------------------------------------------------------  "from lebshop import routes" should  be down here #
 from lebshop import routes
